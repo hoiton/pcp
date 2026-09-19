@@ -3,6 +3,6 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="../StackC/StackC.vcxproj" />
-  <Project Path="EinstiegInC.vcxproj" />
+  <Project Path="../StackC/StackC.vcxproj" Id="700ccb49-79c5-47a1-ae23-d1eac710ff06" />
+  <Project Path="EinstiegInC.vcxproj" Id="d8494e23-3b62-4d2a-a74f-9275ed62b87c" />
 </Solution>
