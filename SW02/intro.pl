@@ -26,8 +26,11 @@ grandmother(X, Y) :- mother(X, Z), parent(Z, Y).
 offspring(X, Y) :- parent(Y, X).
 offspring(X, Y) :- parent(Y, Z), offspring(X, Z). 
 
+
+
 % ---------------------------------------------------
 % Aufgabe 2
+
 % grandmother(liz, X)
 % |
 % v
@@ -93,3 +96,90 @@ offspring(X, Y) :- parent(Y, Z), offspring(X, Z).
 %                         |                   |
 %                         v                   v
 %                       false               false
+
+
+
+% ---------------------------------------------------
+% Aufgabe 3
+
+word(n, e, u).
+word(t, o, p).
+word(t, o, t).
+word(b, r, o, t).
+word(g, r, a, u).
+word(h, a, l, t).
+word(a, l, l, e).
+word(j, e, t, z, t).
+word(s, a, g, e, n).
+word(u, n, t, e, n).
+word(z, e, c, k, e).
+
+crossword(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12) :-
+    word(L2, L3, L4, L5),
+    word(L8, L9, L10, L11, L12),
+    word(L1, L3, L6, L8),
+    word(L5, L7, L10).
+
+
+% ---------------------------------------------------
+% Aufgabe 4
+
+n(red, green).
+n(green, red).
+n(red, yellow).
+n(yellow, red).
+n(green, yellow).
+n(yellow, green).
+
+colors(UR, LU, NW, OW, SZ, ZG) :-
+    UR = yellow,
+    SZ = red,
+    n(UR, NW),
+    n(UR, OW),
+    n(UR, SZ),
+    n(SZ, ZG),
+    n(SZ, LU),
+    n(SZ, NW),
+    n(NW, OW),
+    n(NW, LU),
+    n(OW, LU),
+    n(LU, ZG).
+
+
+% ---------------------------------------------------
+% Aufgabe 5
+
+:- op(1150, xfx, mother).
+:- op(1150, xfx, offspring).
+
+
+% ---------------------------------------------------
+% Aufgabe 6
+
+% X is 16 / 4 / 2
+% is operator führt dazu, dass die Rechnung evaluiert wird.
+% dann wird erst 16/4 gerechnet da / ein yfx operator ist 
+% -> präzedenz von x MUSS kleiner sein als von f -> wird von Links nach rechts evaluiert
+
+% Y = 3, X = Y - 1.
+% Antwort ist: Y = 3, X = 3 - 1.
+% => X wird nie evaluiert
+
+% Y = 3, X is Y - 1
+% Antwort ist: Y = 3, X = 2.
+% is führt dazu dass die rechnung evaluiert wird
+
+
+
+% ---------------------------------------------------
+% Aufgabe 7
+
+mult(0, _, 0).
+
+mult(X, Y, Z) :-
+    X > 0,
+    X1 is X - 1,
+    mult(X1, Y, Z1),
+    Z is Z1 + Y.
+
+% Ohne X > 0, gibt es keine Abbruchbedingung und es wird immer weiter nach lösungen mit negativen X gesucht
