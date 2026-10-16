@@ -37,3 +37,11 @@
 (== 2 2.0)
 
 (str 1 "fdafda")
+
+(defn print-numbers [n]
+ (if (zero? n)
+   (println "Ende!")
+   (do (println n) (print-numbers (dec n)))) 
+  )
+
+(print-numbers 10)

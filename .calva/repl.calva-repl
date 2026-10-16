@@ -1,0 +1,92 @@
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉user꞉> 
+(= 2 2.0)
+clj꞉pcp.hello꞉> 
+2.0
+clj꞉pcp.hello꞉> 
+(== 2 2.0)
+clj꞉pcp.hello꞉> 
+(defn print-numbers [n]
+ (if (neg? n)
+   (println "Ende!")
+   (do (println n) (print-numbers (dec n)))) 
+  )
+clj꞉pcp.hello꞉> 
+10
+clj꞉pcp.hello꞉> 
+(print-numbers 10)
+clj꞉pcp.hello꞉> 
+(print-numbers 10)
+clj꞉pcp.hello꞉> 
+(print-numbers 10)
+clj꞉pcp.hello꞉> 
+(print-numbers 10)
+clj꞉pcp.hello꞉> 
+(defn print-numbers [n]
+ (if (zero? n)
+   (println "Ende!")
+   (do (println n) (print-numbers (dec n)))) 
+  )
+clj꞉pcp.hello꞉> 
+(print-numbers 10)
+clj꞉pcp.hello꞉> 
+(+ 1 (/ 1 (+ 1 1)))
+clj꞉pcp.sw01꞉> 
+(+ 1 (/ 1 (+ 1 (/ 1 (+ 1 1)))))
+clj꞉pcp.sw01꞉> 
+(+ 1 (/ 1 (+ 1 (/ 1 (+ 1 (/ 1 (+ 1 1)))))))
+clj꞉pcp.sw01꞉> 
+(+ 1 (/ 1 (+ 1 (/ 1 (+ 1 (/ 1 (+ 1 1)))))))
+clj꞉pcp.sw01꞉> 
+(Math/sqrt (+ (square laenge) (square breite)))
+; Syntax error compiling at (c:\Users\timsc\Documents\Schule\pcp\clojure_playground\src\pcp\sw01.clj:15:15).
+; Unable to resolve symbol: square in this context
+clj꞉pcp.sw01꞉> 
+(Math/sqrt (+ (square laenge) (square breite)))
+; Syntax error compiling at (c:\Users\timsc\Documents\Schule\pcp\clojure_playground\src\pcp\sw01.clj:15:15).
+; Unable to resolve symbol: square in this context
+clj꞉pcp.sw01꞉> 
+(defn square [x] (* x x))
+clj꞉pcp.sw01꞉> 
+(Math/sqrt (+ (square laenge) (square breite)))
+; Syntax error compiling at (c:\Users\timsc\Documents\Schule\pcp\clojure_playground\src\pcp\sw01.clj:15:15).
+; Unable to resolve symbol: laenge in this context
+clj꞉pcp.sw01꞉> 
+(def laenge 10)
+clj꞉pcp.sw01꞉> 
+(def breite 15)
+clj꞉pcp.sw01꞉> 
+(Math/sqrt (+ (square laenge) (square breite)))
+clj꞉pcp.sw01꞉> 
+(Math/sqrt (+ (square laenge) (square breite)))
+clj꞉pcp.sw01꞉> 
+(* laenge breite height)
+; Syntax error compiling at (c:\Users\timsc\Documents\Schule\pcp\clojure_playground\src\pcp\sw01.clj:18:1).
+; Unable to resolve symbol: height in this context
+clj꞉pcp.sw01꞉> 
+(def height 30)
+clj꞉pcp.sw01꞉> 
+(* laenge breite height)
+clj꞉pcp.sw01꞉> 
+((fn [x] (/ 1 x)) (/ 5 2))
+clj꞉pcp.sw01꞉> 
+(not "this" "is" "crazy")
+; Execution error (ArityException) at pcp.sw01/eval10366 (sw01.clj:27).
+; Wrong number of args (3) passed to: clojure.core/not
+clj꞉pcp.sw01꞉> 
+(not "this")
+clj꞉pcp.sw01꞉> 
+(and "this" "is" "crazy")
+clj꞉pcp.sw01꞉> 
+(or "this" "is" "crazy")
+clj꞉pcp.sw01꞉> 
+(+ (parse-long "123") (parse-double "0.45"))
+clj꞉pcp.sw01꞉> 
+(str 1.0 2 true)
+clj꞉pcp.sw01꞉> 
+'(+ - * /)
+clj꞉pcp.sw01꞉> 
+(+ (* 2 3) (/ 3 4))
+clj꞉pcp.sw01꞉> 
+((fn [x] (/ 1 x)) (/ 5 2))
+clj꞉pcp.sw01꞉> 
