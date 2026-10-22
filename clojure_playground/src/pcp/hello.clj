@@ -1,4 +1,5 @@
-(ns pcp.hello)
+(ns pcp.hello
+  (:require [clojure.math :refer [pow]]))
 
 (+ 1 1)
 
@@ -39,9 +40,26 @@
 (str 1 "fdafda")
 
 (defn print-numbers [n]
- (if (zero? n)
-   (println "Ende!")
-   (do (println n) (print-numbers (dec n)))) 
-  )
+  (if (zero? n)
+    (println "Ende!")
+    (do (println n) (print-numbers (dec n)))))
 
 (print-numbers 10)
+
+(loop [current 1]
+  (if (> current 256)
+    (println "end")
+    (do
+      (println current)
+      (recur (* 2 current)))))
+(loop [i 0]
+  (when (<= i 8)
+    (println (pow 2 i))
+    (recur (inc i))))
+
+(loop [n 1
+       acc 1]
+  (if (> n 10)
+    (println "end")
+    (do (println acc)
+        (recur (inc n) (+ acc n)))))
